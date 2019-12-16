@@ -1,23 +1,16 @@
 // Why is everything happening in this require function?
-require(["esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer","esri/widgets/Locate","esri/views/SceneView"], function(Map, MapView,FeatureLayer,Locate, SceneView) {
+require(["esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer","esri/widgets/Locate"], function(Map, MapView,FeatureLayer,Locate) {
 
     const myMap = new Map({
       // basemap: "topo-vector"
-      basemap: "satellite",
-      ground: "world-elevation"
+      basemap: "satellite"
     });
 
-    const view = new SceneView({
+    const view = new MapView({
       container: "viewDiv",
       map: myMap,
-      camera: {
-        position: {  // observation point
-          x: -118.684595,
-          y: 33.7080002,
-          z: 20000 // altitude in meters
-        },
-        tilt: 65  // perspective in degrees
-      }
+      center: [-118.684595,34.072],
+      zoom: 12
     });
 
     // Define a popup for Trailheads
